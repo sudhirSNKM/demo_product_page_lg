@@ -2,12 +2,29 @@
 window.addEventListener('load', () => {
     const preloader = document.getElementById('preloader');
     if (preloader) {
-        // Small delay to ensure the animation is seen
         setTimeout(() => {
             preloader.classList.add('hidden');
         }, 1000);
     }
 });
+
+// Offline / Online Detection
+const offlineOverlay = document.getElementById('offline-overlay');
+
+function handleOffline() {
+    if (offlineOverlay) offlineOverlay.classList.add('active');
+}
+
+function handleOnline() {
+    if (offlineOverlay) offlineOverlay.classList.remove('active');
+}
+
+window.addEventListener('offline', handleOffline);
+window.addEventListener('online', handleOnline);
+
+// Check immediately on page load in case already offline
+if (!navigator.onLine) handleOffline();
+
 
 document.addEventListener('DOMContentLoaded', () => {
     // Reveal Animations on Scroll
