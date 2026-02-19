@@ -833,37 +833,48 @@ footer {
 
 .ai-text-path {
     font-family: var(--font-family);
-    font-weight: 700;
-    fill: none;
+    font-weight: 800;
+    fill: transparent;
     stroke: url(#aiGradient);
-    stroke-width: 2px;
+    stroke-width: 1.5px;
     stroke-linecap: round;
     stroke-linejoin: round;
-    /* Apply the requested animation logic */
-    stroke-dasharray: 0 300;
-    /* Adjusted for text path length */
-    animation: aiDash 4s ease-in-out infinite alternate;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: aiDraw 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
-/* Integrating user's keyframes adapted for text readability */
-@keyframes aiDash {
+@keyframes aiDraw {
     0% {
-        stroke-dasharray: 0 300;
+        stroke-dashoffset: 100;
+        fill: transparent;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    40% {
         stroke-dashoffset: 0;
         fill: transparent;
     }
 
-    50% {
-        stroke-dasharray: 300 0;
+    60% {
         stroke-dashoffset: 0;
-        fill: transparent;
+        fill: var(--text-main);
+    }
+
+    90% {
+        stroke-dashoffset: 0;
+        fill: var(--text-main);
+        opacity: 1;
     }
 
     100% {
-        stroke-dasharray: 300 0;
         stroke-dashoffset: 0;
         fill: var(--text-main);
-        /* Fade in fill at the end */
+        opacity: 0;
     }
 }
 
