@@ -13,10 +13,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body style="visibility: hidden;">
-    <script>document.body.style.visibility = 'visible';</script>
-
-        <!-- Global Preloader -->
+<body>
+    <!-- Global Preloader -->
     <div id="preloader" class="preloader-overlay">
         <div class="loader">
             <svg height="0" width="0" viewBox="0 0 64 64" class="absolute">
@@ -58,17 +56,65 @@
                     <!-- A -->
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 64 64" class="loader-letter">
                         <path stroke-linejoin="round" stroke-linecap="round" stroke-width="8" stroke="url(#b)"
-                            d="M 12,55 L 32,10 L 52,55 M 20,40 L 44,40" class="dash" id="a-letter" pathLength="360"></path>
+                            d="M 12,55 L 32,10 L 52,55 M 20,40 L 44,40" class="dash" id="a-letter" pathLength="360">
+                        </path>
                     </svg>
                     <!-- I -->
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 64 64" class="loader-letter">
                         <path stroke-linejoin="round" stroke-linecap="round" stroke-width="8" stroke="url(#d)"
-                            d="M 32,10 V 55 M 15,10 H 49 M 15,55 H 49" class="dash" id="i-letter" pathLength="360"></path>
+                            d="M 32,10 V 55 M 15,10 H 49 M 15,55 H 49" class="dash" id="i-letter" pathLength="360">
+                        </path>
                     </svg>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Offline Overlay -->
+    <div id="offline-overlay" class="offline-overlay">
+        <div id="wifi-loader">
+            <svg class="circle-outer" viewBox="0 0 86 86">
+                <circle class="back" cx="43" cy="43" r="40"></circle>
+                <circle class="front" cx="43" cy="43" r="40"></circle>
+            </svg>
+            <svg class="circle-middle" viewBox="0 0 60 60">
+                <circle class="back" cx="30" cy="30" r="27"></circle>
+                <circle class="front" cx="30" cy="30" r="27"></circle>
+            </svg>
+            <svg class="circle-inner" viewBox="0 0 34 34">
+                <circle class="back" cx="17" cy="17" r="14"></circle>
+                <circle class="front" cx="17" cy="17" r="14"></circle>
+            </svg>
+            <div class="text" data-text="Searching"></div>
+        </div>
+        <p class="offline-label">No internet connection. Please check your network.</p>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-layer-group" style="font-size: 1.2rem; color: var(--primary-blue);"></i>
+                <span>FortuMars</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">AI Solutions</a></li>
+                <li><a href="products.html">All Products</a></li>
+                <li><a href="business_cloud.html" class="active">Business Cloud</a></li>
+                <li><a href="data_analytics.html">Data Analytics</a></li>
+                <li><a href="consulting.html">Consulting</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <i class="fas fa-search icon-btn"></i>
+                <a href="#" class="btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">Get Started</a>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
     </nav>
 
     <header class="hero">
@@ -176,7 +222,6 @@
                     <li><a href="consulting.html">Consulting</a></li>
                 </ul>
             </div>
-            <!-- ... repeated footer cols for consistency ... -->
             <div class="footer-col">
                 <h4>Support</h4>
                 <ul>
