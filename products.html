@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products Catalog | FortuMars</title>
+    <meta name="description"
+        content="Explore our extensive range of software solutions including HRM, LMS, Billing Software, and Custom Development services.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .catalog-hero {
+            padding-top: 120px;
+            padding-bottom: 60px;
+            text-align: center;
+            background-color: var(--surface-color);
+        }
+
+        .catalog-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .catalog-hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 40px;
+            padding: 60px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card-item {
+            background: #fff;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-hover-shadow);
+        }
+
+        .product-icon {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 24px;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .product-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .product-link {
+            margin-top: auto;
+            color: var(--primary-blue);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-layer-group" style="font-size: 1.2rem; color: var(--primary-blue);"></i>
+                <span>FortuMars</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">AI Solutions</a></li>
+                <li><a href="products.html" class="active">All Products</a></li>
+                <li><a href="business_cloud.html">Business Cloud</a></li>
+                <li><a href="data_analytics.html">Data Analytics</a></li>
+                <li><a href="consulting.html">Consulting</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <i class="fas fa-search icon-btn"></i>
+                <a href="#" class="btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">Get Started</a>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="catalog-hero">
+        <h1>Our Product Suite</h1>
+        <p>Comprehensive software solutions to power every aspect of your business.</p>
+    </header>
+
+    <section class="catalog-grid" id="product-grid">
+        <!-- Products will be injected here via JS -->
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="products.html">All Products</a></li>
+                    <li><a href="#">FortuMind AI</a></li>
+                    <li><a href="#">OmniFlow ERP</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About FortuMars</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p style="color: #9aa0a6; font-size: 0.8rem;">&copy; 2026 FortuMars Technologies.</p>
+        </div>
+    </footer>
+
+    <script src="products_data.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('product-grid');
+
+            productsData.forEach(product => {
+                const card = document.createElement('a');
+                card.className = 'product-card-item';
+                card.href = `product_details.html?id=${product.id}`;
+
+                card.innerHTML = `
+                    <i class="${product.icon} product-icon"></i>
+                    <h3 class="product-title">${product.title}</h3>
+                    <p class="product-desc">${product.shortDesc}</p>
+                    <div class="product-link">
+                        Explore <i class="fas fa-arrow-right"></i>
+                    </div>
+                `;
+
+                grid.appendChild(card);
+            });
+        });
+    </script>
+    <script src="script.js"></script> <!-- Reusing existing animations if applicable -->
+</body>
+
+</html>

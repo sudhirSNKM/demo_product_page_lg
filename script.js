@@ -16,12 +16,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     // Apply fade-in animation to products and features
-    const animatedElements = document.querySelectorAll('.product-card, .feature-content, .feature-image');
+    const animatedElements = document.querySelectorAll('.product-card, .feature-content, .feature-image, .hero-image, .btn-primary, .hero h1, .hero p, .hero-eyebrow, .hover-card');
     animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
-        observer.observe(el);
+        // Only add if not already animated by inline styles (like hero elements)
+        if (!el.style.animation) {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            observer.observe(el);
+        }
     });
 
     // Mobile Navigation Toggle
@@ -30,8 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (hamburger) {
         hamburger.addEventListener('click', () => {
-            // Simple toggle for mobile view (would need more CSS for full mobile menu implementation)
-            // For now, let's just log it or add a class if we had mobile styles set up perfectly
             if (navLinks.style.display === 'flex') {
                 navLinks.style.display = 'none';
             } else {
@@ -44,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 navLinks.style.background = 'white';
                 navLinks.style.padding = '20px';
                 navLinks.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+                navLinks.style.zIndex = '1001';
             }
         });
     }
@@ -58,14 +60,56 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Optional: Subtle Parallax for Hero Image
+    // Hero Parallax
     const heroImage = document.querySelector('.hero-image');
-    window.addEventListener('scroll', () => {
-        if (heroImage) {
+    if (heroImage) {
+        window.addEventListener('scroll', () => {
             const scroll = window.scrollY;
-            if (scroll < 800) { // Only animate when visible
+            if (scroll < 800) {
                 heroImage.style.transform = `perspective(1000px) rotateX(${Math.max(0, 2 - scroll * 0.01)}deg) translateY(${scroll * 0.1}px)`;
             }
-        }
-    });
+        });
+    }
+
+    // Counter Animation
+    const statsSection = document.querySelector('.stats-section');
+    if (statsSection) {
+        let counted = false;
+        const statObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && !counted) {
+                counted = true;
+                const counters = document.querySelectorAll('.stat-item h3');
+                counters.forEach(counter => {
+                    const target = counter.innerText;
+                    // Extract number and suffix
+                    const numberMatch = target.match(/[\d\.]+/);
+                    const suffixMatch = target.match(/[^\d\.]+/);
+
+                    if (numberMatch) {
+                        const targetNum = parseFloat(numberMatch[0]);
+                        const suffix = suffixMatch ? suffixMatch[0] : '';
+                        let currentNum = 0;
+                        const duration = 2000; // 2 seconds
+                        const stepTime = 20;
+                        const steps = duration / stepTime;
+                        const increment = targetNum / steps;
+
+                        const timer = setInterval(() => {
+                            currentNum += increment;
+                            if (currentNum >= targetNum) {
+                                currentNum = targetNum;
+                                clearInterval(timer);
+                            }
+                            // Format number nicely
+                            // If it's an integer, show no decimals. If float, show 1.
+                            const displayNum = Number.isInteger(targetNum) ? Math.floor(currentNum) : currentNum.toFixed(1);
+                            counter.innerText = displayNum + suffix;
+                        }, stepTime);
+                    }
+                });
+            }
+        }, { threshold: 0.5 });
+
+        statObserver.observe(statsSection);
+    }
 });

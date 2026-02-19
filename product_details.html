@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details | FortuMars</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .product-hero {
+            padding: 120px 24px 80px;
+            background: linear-gradient(135deg, #1967d2 0%, #174ea6 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .product-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 24px;
+        }
+
+        .product-hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .section-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        .benefit-card {
+            background: #fff;
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eee;
+            transition: transform 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-card h4 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: var(--primary-blue);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        .pricing-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary-blue);
+            box-shadow: 0 8px 24px rgba(25, 103, 210, 0.15);
+            transform: scale(1.05);
+            z-index: 1;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin: 24px 0;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 32px;
+            text-align: left;
+        }
+
+        .features-list li {
+            margin-bottom: 12px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .features-list li i {
+            color: var(--primary-blue);
+        }
+
+        /* Reviews */
+        .reviews-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        .review-card {
+            background: #f8f9fa;
+            padding: 32px;
+            border-radius: 12px;
+            font-style: italic;
+        }
+
+        .stars {
+            color: #fbbc04;
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+        }
+
+        .reviewer-info {
+            margin-top: 24px;
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        .reviewer-company {
+            font-weight: 400;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            margin-bottom: 16px;
+        }
+
+        .faq-question {
+            padding: 24px 0;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            color: var(--primary-blue);
+        }
+
+        .faq-answer {
+            padding-bottom: 24px;
+            color: var(--text-muted);
+            display: none;
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-layer-group" style="font-size: 1.2rem; color: var(--primary-blue);"></i>
+                <span>FortuMars</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">AI Solutions</a></li>
+                <li><a href="products.html">All Products</a></li>
+                <li><a href="business_cloud.html">Business Cloud</a></li>
+                <li><a href="data_analytics.html">Data Analytics</a></li>
+                <li><a href="consulting.html">Consulting</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="products.html" class="btn-primary"
+                    style="padding: 8px 20px; font-size: 0.9rem; background: transparent; border: 1px solid var(--primary-blue); color: var(--primary-blue);">Back
+                    to Catalog</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Content (Dynamic) -->
+    <div id="product-content">
+        <!-- Will be filled by JS -->
+    </div>
+
+    <!-- Pricing Section -->
+    <section class="section-container" style="background-color: #f8f9fa;">
+        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 16px;">Transparent Pricing</h2>
+        <p style="text-align: center; color: var(--text-muted); margin-bottom: 40px;">Choose the plan that fits your
+            scale.</p>
+        <div class="pricing-grid" id="pricing-grid">
+            <!-- Dynamic Pricing -->
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="section-container">
+        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 40px;">What our users say</h2>
+        <div class="reviews-container" id="reviews-grid">
+            <!-- Dynamic Reviews -->
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-container" style="max-width: 800px;">
+        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 40px;">Frequently Asked Questions</h2>
+        <div id="faq-list">
+            <!-- Dynamic FAQs -->
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="products.html">All Products</a></li>
+                    <li><a href="index.html">Home</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Sales</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p style="color: #9aa0a6; font-size: 0.8rem;">&copy; 2026 FortuMars Technologies.</p>
+        </div>
+    </footer>
+
+    <script src="products_data.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+            const product = getProductById(productId);
+
+            if (!product) {
+                document.body.innerHTML = '<div style="text-align:center; padding: 100px;"><h1>Product not found</h1><a href="products.html">Return to Catalog</a></div>';
+                return;
+            }
+
+            document.title = `${product.title} | FortuMars`;
+
+            // Hero Section
+            const contentDiv = document.getElementById('product-content');
+            contentDiv.innerHTML = `
+                <header class="product-hero">
+                    <i class="${product.icon}" style="font-size: 4rem; color: rgba(255,255,255,0.8); margin-bottom: 24px;"></i>
+                    <h1>${product.title}</h1>
+                    <p style="color: rgba(255,255,255,0.9);">${product.about}</p>
+                </header>
+
+                <div class="section-container">
+                    <h2 style="font-size: 2rem; margin-bottom: 32px; text-align: center;">Key Benefits</h2>
+                    <div class="benefits-grid">
+                        ${product.benefits.map(benefit => `
+                            <div class="benefit-card">
+                                <h4><i class="fas fa-check-circle" style="color: var(--primary-blue); margin-right: 8px;"></i> Benefit</h4>
+                                <p style="color: var(--text-muted);">${benefit}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+
+            // Pricing
+            const pricingGrid = document.getElementById('pricing-grid');
+            product.pricing.forEach((plan, index) => {
+                const card = document.createElement('div');
+                card.className = `pricing-card ${index === 1 ? 'featured' : ''}`; // Highlight middle plan
+                card.innerHTML = `
+                    <h3 style="font-size: 1.5rem; margin-bottom: 16px;">${plan.plan}</h3>
+                    <div class="price">${plan.price}</div>
+                    <ul class="features-list">
+                        ${plan.features.map(feat => `<li><i class="fas fa-check"></i> ${feat}</li>`).join('')}
+                    </ul>
+                    <a href="#" class="btn-primary" style="width: 100%; display: block; text-align: center;">Choose Plan</a>
+                `;
+                pricingGrid.appendChild(card);
+            });
+
+            // Reviews
+            const reviewsGrid = document.getElementById('reviews-grid');
+            product.reviews.forEach(review => {
+                const card = document.createElement('div');
+                card.className = 'review-card';
+                // Generate stars
+                let starsHtml = '';
+                for (let i = 0; i < review.rating; i++) starsHtml += '<i class="fas fa-star"></i>';
+
+                card.innerHTML = `
+                    <div class="stars">${starsHtml}</div>
+                    <p>"${review.comment}"</p>
+                    <div class="reviewer-info">${review.user}</div>
+                    <div class="reviewer-company">${review.company}</div>
+                `;
+                reviewsGrid.appendChild(card);
+            });
+
+            // FAQs
+            const faqList = document.getElementById('faq-list');
+            product.faqs.forEach(faq => {
+                const item = document.createElement('div');
+                item.className = 'faq-item';
+                item.innerHTML = `
+                    <div class="faq-question">
+                        ${faq.question}
+                        <i class="fas fa-chevron-down" style="transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="faq-answer">${faq.answer}</div>
+                `;
+
+                item.querySelector('.faq-question').addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    // Close all others
+                    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                    // Toggle current
+                    if (!isActive) item.classList.add('active');
+                });
+
+                faqList.appendChild(item);
+            });
+        });
+    </script>
+</body>
+
+</html>
