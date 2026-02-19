@@ -1199,3 +1199,58 @@ footer {
         /* Full width pills on very small screens */
     }
 }
+
+/* ─── Image Error / Broken Image Fallback ─────────────────────────── */
+img {
+    /* Prevent ugly border when image fails */
+    background-color: #f1f3f4;
+}
+
+img[src=""],
+img:not([src]) {
+    visibility: hidden;
+}
+
+/* Fallback styling for broken images in card wrappers */
+.card-image-wrapper img,
+.hero-image,
+.feature-image {
+    /* Graceful fallback gradient when Unsplash is unavailable */
+    background: linear-gradient(135deg, #e8f0fe 0%, #d2e3fc 100%);
+}
+
+/* Card image loaded state — hide skeleton */
+.card-image-wrapper.img-loaded::before {
+    display: none;
+}
+
+/* ─── Skeleton loading pulse for images ─────────────────────────── */
+.card-image-wrapper {
+    position: relative;
+}
+
+.card-image-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #f1f3f4 25%, #e8eaed 50%, #f1f3f4 75%);
+    background-size: 200% 100%;
+    animation: skeleton-pulse 1.5s ease-in-out infinite;
+    z-index: 0;
+    border-radius: inherit;
+}
+
+.card-image-wrapper img {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes skeleton-pulse {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}

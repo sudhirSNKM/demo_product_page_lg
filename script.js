@@ -141,3 +141,33 @@ document.addEventListener('DOMContentLoaded', () => {
         statObserver.observe(statsSection);
     }
 });
+
+// ─── Global Image Error Handler ───────────────────────────────────────
+// When any image fails to load (e.g. Unsplash offline), replace with a
+// clean branded SVG placeholder instead of showing a broken grey box.
+document.addEventListener('DOMContentLoaded', () => {
+    const placeholderSVG = (label) => {
+        const encoded = encodeURIComponent(label || 'FortuMars');
+        return `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect width='400' height='200' fill='%23e8f0fe'/%3E%3Crect x='150' y='60' width='100' height='55' rx='8' fill='%23d2e3fc'/%3E%3Ccircle cx='175' cy='82' r='11' fill='%234285f4' opacity='0.5'/%3E%3Cpolygon points='155,115 185,88 210,108 235,80 245,115' fill='%234285f4' opacity='0.4'/%3E%3Ctext x='200' y='158' font-family='sans-serif' font-size='13' fill='%235f6368' text-anchor='middle'%3E${encoded}%3C/text%3E%3C/svg%3E`;
+    };
+
+    document.querySelectorAll('img').forEach(img => {
+        // Hide skeleton when image loads successfully
+        img.addEventListener('load', function () {
+            const wrapper = this.closest('.card-image-wrapper');
+            if (wrapper) wrapper.classList.add('img-loaded');
+        });
+
+        // Replace with placeholder if image fails
+        img.addEventListener('error', function () {
+            if (this.src.includes('data:image/svg')) return; // avoid loop
+            this.src = placeholderSVG(this.alt);
+            this.style.objectFit = 'contain';
+            this.style.padding = '12px';
+            this.style.background = '#e8f0fe';
+            const wrapper = this.closest('.card-image-wrapper');
+            if (wrapper) wrapper.classList.add('img-loaded'); // stop skeleton too
+        });
+    });
+});
+
