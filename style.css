@@ -825,10 +825,13 @@ footer {
 /* AI Text Loader Animation */
 .ai-text-svg {
     height: 1em;
-    width: 2.5em;
-    /* Adjust based on text width */
-    vertical-align: bottom;
+    width: 2.2em;
+    /* Ensure enough space is reserved */
+    vertical-align: -0.15em;
+    /* Better baseline alignment */
     overflow: visible;
+    margin-left: 8px;
+    /* Add breathing room from 'Business' */
 }
 
 .ai-text-path {
