@@ -836,9 +836,10 @@ footer {
     font-weight: 800;
     fill: transparent;
     stroke: url(#aiGradient);
-    stroke-width: 1.5px;
+    stroke-width: 3px;
     stroke-linecap: round;
     stroke-linejoin: round;
+    paint-order: stroke;
     stroke-dasharray: 100;
     stroke-dashoffset: 100;
     animation: aiDraw 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
