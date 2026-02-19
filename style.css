@@ -821,3 +821,130 @@ footer {
         /* Full width pills on very small screens */
     }
 }
+
+/* AI Text Loader Animation */
+.ai-text-svg {
+    height: 1em;
+    width: 2.5em;
+    /* Adjust based on text width */
+    vertical-align: bottom;
+    overflow: visible;
+}
+
+.ai-text-path {
+    font-family: var(--font-family);
+    font-weight: 700;
+    fill: none;
+    stroke: url(#aiGradient);
+    stroke-width: 2px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    /* Apply the requested animation logic */
+    stroke-dasharray: 0 300;
+    /* Adjusted for text path length */
+    animation: aiDash 4s ease-in-out infinite alternate;
+}
+
+/* Integrating user's keyframes adapted for text readability */
+@keyframes aiDash {
+    0% {
+        stroke-dasharray: 0 300;
+        stroke-dashoffset: 0;
+        fill: transparent;
+    }
+
+    50% {
+        stroke-dasharray: 300 0;
+        stroke-dashoffset: 0;
+        fill: transparent;
+    }
+
+    100% {
+        stroke-dasharray: 300 0;
+        stroke-dashoffset: 0;
+        fill: var(--text-main);
+        /* Fade in fill at the end */
+    }
+}
+
+/* User provided loader styles (kept for reference or usage) */
+.loader {
+    display: flex;
+    margin: 0.25em 0;
+}
+
+.dash {
+    animation: dashArray 2s ease-in-out infinite,
+        dashOffset 2s linear infinite;
+}
+
+.spin {
+    animation: spinDashArray 2s ease-in-out infinite,
+        spin 8s ease-in-out infinite,
+        dashOffset 2s linear infinite;
+    transform-origin: center;
+}
+
+@keyframes dashArray {
+    0% {
+        stroke-dasharray: 0 1 359 0;
+    }
+
+    50% {
+        stroke-dasharray: 0 359 1 0;
+    }
+
+    100% {
+        stroke-dasharray: 359 1 0 0;
+    }
+}
+
+@keyframes spinDashArray {
+    0% {
+        stroke-dasharray: 270 90;
+    }
+
+    50% {
+        stroke-dasharray: 0 360;
+    }
+
+    100% {
+        stroke-dasharray: 270 90;
+    }
+}
+
+@keyframes dashOffset {
+    0% {
+        stroke-dashoffset: 365;
+    }
+
+    100% {
+        stroke-dashoffset: 5;
+    }
+}
+
+@keyframes spin {
+    0% {
+        rotate: 0deg;
+    }
+
+    12.5%,
+    25% {
+        rotate: 270deg;
+    }
+
+    37.5%,
+    50% {
+        rotate: 540deg;
+    }
+
+    62.5%,
+    75% {
+        rotate: 810deg;
+    }
+
+    87.5%,
+    100% {
+        rotate: 1080deg;
+    }
+}
