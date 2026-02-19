@@ -717,12 +717,36 @@ footer {
 
 /* Mobile Breakpoints */
 @media (max-width: 768px) {
+    .hero {
+        padding: 80px 20px 40px;
+        min-height: auto;
+    }
+
     .hero h1 {
         font-size: 2.5rem;
+        line-height: 1.2;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+        padding: 0 16px;
     }
 
     .feature-container {
         grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    /* Reverse order for alternating feature sections on mobile so image is always top/bottom consistent if needed, 
+       but standard stacking is usually fine. Let's keep text first for readability. */
+    .feature-section:nth-child(even) .feature-container {
+        direction: ltr !important;
+    }
+
+    .feature-text {
+        direction: ltr !important;
+        padding: 0;
     }
 
     .nav-links {
@@ -733,29 +757,67 @@ footer {
         display: block;
     }
 
-    .feature-container {
-        gap: 40px;
+    .hero-content>div[style*="display: flex"] {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .btn-glow {
+        width: 100%;
+        max-width: 280px;
+        padding: 14px 24px;
+        font-size: 0.95rem;
     }
 
     .logos-grid {
         gap: 24px;
+        flex-wrap: wrap;
     }
 
     .stat-item h3 {
-        font-size: 2.5rem;
+        font-size: 2rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
     }
 
     .hover-card {
         width: 100%;
-        max-width: 320px;
+        max-width: 100%;
     }
 
     .pill-grid {
-        gap: 12px;
+        gap: 8px;
     }
 
     .btn-pill {
-        padding: 10px 20px;
-        font-size: 0.9rem;
+        padding: 8px 16px;
+        font-size: 0.85rem;
+        width: calc(50% - 8px);
+        /* 2 columns on mobile */
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .highlight-text {
+        display: block;
+        /* Stack morphing text on very small screens if needed */
+        margin-top: 4px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-pill {
+        width: 100%;
+        /* Full width pills on very small screens */
     }
 }
