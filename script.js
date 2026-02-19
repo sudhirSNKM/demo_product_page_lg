@@ -1,3 +1,14 @@
+// Preloader Hiding Logic
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        // Small delay to ensure the animation is seen
+        setTimeout(() => {
+            preloader.classList.add('hidden');
+        }, 1000);
+    }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     // Reveal Animations on Scroll
     const observerOptions = {
