@@ -40,28 +40,35 @@
                     </linearGradient>
                 </defs>
             </svg>
-            <!-- A -->
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 64 64" height="64" width="64"
-                class="inline-block">
-                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="8" stroke="url(#b)"
-                    d="M 12,55 L 32,10 L 52,55 M 20,40 L 44,40" class="dash" id="a-letter" pathLength="360"></path>
-            </svg>
-            <div class="w-2"></div>
-            <!-- Pulse Circle -->
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 64 64" height="64" width="64"
-                class="inline-block">
-                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="10" stroke="url(#c)" d="M 32 32
-                m 0 -27
-                a 27 27 0 1 1 0 54
-                a 27 27 0 1 1 0 -54" class="spin" id="pulse-dot" pathLength="360"></path>
-            </svg>
-            <div class="w-2"></div>
-            <!-- I -->
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 64 64" height="64" width="64"
-                class="inline-block">
-                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="8" stroke="url(#d)"
-                    d="M 32,10 V 55 M 15,10 H 49 M 15,55 H 49" class="dash" id="i-letter" pathLength="360"></path>
-            </svg>
+            <div class="aura-container">
+                <!-- Glowing Energy Aura -->
+                <div class="aura-bg"
+                    style="background: radial-gradient(circle, rgba(25, 103, 210, 0.4) 0%, transparent 70%);"></div>
+
+                <!-- Spinning Ring -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 64 64" class="aura-spin-svg">
+                    <path stroke-linejoin="round" stroke-linecap="round" stroke-width="6" stroke="url(#c)" d="M 32 32
+                    m 0 -27
+                    a 27 27 0 1 1 0 54
+                    a 27 27 0 1 1 0 -54" class="spin" id="pulse-dot" pathLength="360"></path>
+                </svg>
+
+                <!-- AI Text on Top -->
+                <div class="ai-letters-wrapper">
+                    <!-- A -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 64 64" class="loader-letter">
+                        <path stroke-linejoin="round" stroke-linecap="round" stroke-width="8" stroke="url(#b)"
+                            d="M 12,55 L 32,10 L 52,55 M 20,40 L 44,40" class="dash" id="a-letter" pathLength="360">
+                        </path>
+                    </svg>
+                    <!-- I -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 64 64" class="loader-letter">
+                        <path stroke-linejoin="round" stroke-linecap="round" stroke-width="8" stroke="url(#d)"
+                            d="M 32,10 V 55 M 15,10 H 49 M 15,55 H 49" class="dash" id="i-letter" pathLength="360">
+                        </path>
+                    </svg>
+                </div>
+            </div>
         </div>
     </div>
 

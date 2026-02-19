@@ -181,8 +181,178 @@
         }
 
         .faq-item.active .faq-question i {
-            transform: rotate(180deg);
-        }
+            < !DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Product Details | FortuMars</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="style.css"><style>.product-hero {
+                padding: 120px 24px 80px;
+                background: linear-gradient(135deg, #1967d2 0%, #174ea6 100%);
+                color: white;
+                text-align: center;
+            }
+
+            .product-hero h1 {
+                font-size: 3.5rem;
+                margin-bottom: 24px;
+            }
+
+            .product-hero p {
+                font-size: 1.25rem;
+                max-width: 800px;
+                margin: 0 auto;
+                opacity: 0.9;
+            }
+
+            .section-container {
+                max-width: 1000px;
+                margin: 0 auto;
+                padding: 80px 24px;
+            }
+
+            .benefits-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 32px;
+                margin-top: 40px;
+            }
+
+            .benefit-card {
+                background: #fff;
+                padding: 32px;
+                border-radius: 12px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+                border: 1px solid #eee;
+                transition: transform 0.3s;
+            }
+
+            .benefit-card:hover {
+                transform: translateY(-5px);
+            }
+
+            .benefit-card h4 {
+                font-size: 1.25rem;
+                margin-bottom: 12px;
+                color: var(--primary-blue);
+            }
+
+            .pricing-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 32px;
+                margin-top: 40px;
+            }
+
+            .pricing-card {
+                background: #fff;
+                border: 1px solid #e0e0e0;
+                border-radius: 16px;
+                padding: 40px;
+                text-align: center;
+                position: relative;
+            }
+
+            .pricing-card.featured {
+                border-color: var(--primary-blue);
+                box-shadow: 0 8px 24px rgba(25, 103, 210, 0.15);
+                transform: scale(1.05);
+                z-index: 1;
+            }
+
+            .price {
+                font-size: 2.5rem;
+                font-weight: 700;
+                color: var(--text-main);
+                margin: 24px 0;
+            }
+
+            .price span {
+                font-size: 1rem;
+                color: var(--text-muted);
+                font-weight: 400;
+            }
+
+            .features-list {
+                list-style: none;
+                margin-bottom: 32px;
+                text-align: left;
+            }
+
+            .features-list li {
+                margin-bottom: 12px;
+                color: var(--text-muted);
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .features-list li i {
+                color: var(--primary-blue);
+            }
+
+            /* Reviews */
+            .reviews-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 32px;
+                margin-top: 40px;
+            }
+
+            .review-card {
+                background: #f8f9fa;
+                padding: 32px;
+                border-radius: 12px;
+                font-style: italic;
+            }
+
+            .stars {
+                color: #fbbc04;
+                margin-bottom: 16px;
+                font-size: 0.9rem;
+            }
+
+            .reviewer-info {
+                margin-top: 24px;
+                font-style: normal;
+                font-weight: 600;
+            }
+
+            .reviewer-company {
+                font-weight: 400;
+                color: var(--text-muted);
+                font-size: 0.9rem;
+            }
+
+            /* FAQ */
+            .faq-item {
+                border-bottom: 1px solid #eee;
+                margin-bottom: 16px;
+            }
+
+            .faq-question {
+                padding: 24px 0;
+                cursor: pointer;
+                font-weight: 600;
+                font-size: 1.1rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .faq-question:hover {
+                color: var(--primary-blue);
+            }
+
+            .faq-answer {
+                padding-bottom: 24px;
+                color: var(--text-muted);
+                display: none;
+                line-height: 1.6;
+            }
+
+            .faq-item.active .faq-answer {
+                display: block;
+            }
+
+            .faq-item.active .faq-question i {
+                transform: rotate(180deg);
+            }
     </style>
 </head>
 
@@ -211,24 +381,35 @@
                     </linearGradient>
                 </defs>
             </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 64 64" height="64" width="64"
-                class="inline-block">
-                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="8" stroke="url(#b)"
-                    d="M 12,55 L 32,10 L 52,55 M 20,40 L 44,40" class="dash" id="a-letter" pathLength="360"></path>
-            </svg>
-            <div class="w-2"></div>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 64 64" height="64" width="64"
-                class="inline-block">
-                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="10" stroke="url(#c)"
-                    d="M 32 32 m 0 -27 a 27 27 0 1 1 0 54 a 27 27 0 1 1 0 -54" class="spin" id="pulse-dot"
-                    pathLength="360"></path>
-            </svg>
-            <div class="w-2"></div>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 64 64" height="64" width="64"
-                class="inline-block">
-                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="8" stroke="url(#d)"
-                    d="M 32,10 V 55 M 15,10 H 49 M 15,55 H 49" class="dash" id="i-letter" pathLength="360"></path>
-            </svg>
+            <div class="aura-container">
+                <!-- Glowing Energy Aura -->
+                <div class="aura-bg"
+                    style="background: radial-gradient(circle, rgba(25, 103, 210, 0.4) 0%, transparent 70%);"></div>
+
+                <!-- Spinning Ring -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 64 64" class="aura-spin-svg">
+                    <path stroke-linejoin="round" stroke-linecap="round" stroke-width="6" stroke="url(#c)" d="M 32 32
+                    m 0 -27
+                    a 27 27 0 1 1 0 54
+                    a 27 27 0 1 1 0 -54" class="spin" id="pulse-dot" pathLength="360"></path>
+                </svg>
+
+                <!-- AI Text on Top -->
+                <div class="ai-letters-wrapper">
+                    <!-- A -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 64 64" class="loader-letter">
+                        <path stroke-linejoin="round" stroke-linecap="round" stroke-width="8" stroke="url(#b)"
+                            d="M 12,55 L 32,10 L 52,55 M 20,40 L 44,40" class="dash" id="a-letter" pathLength="360">
+                        </path>
+                    </svg>
+                    <!-- I -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 64 64" class="loader-letter">
+                        <path stroke-linejoin="round" stroke-linecap="round" stroke-width="8" stroke="url(#d)"
+                            d="M 32,10 V 55 M 15,10 H 49 M 15,55 H 49" class="dash" id="i-letter" pathLength="360">
+                        </path>
+                    </svg>
+                </div>
+            </div>
         </div>
     </div>
 
